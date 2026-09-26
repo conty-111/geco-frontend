@@ -1,0 +1,39 @@
+/* ============================================================
+   GECO - Estilos globales
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografía */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Texto secundario */
+.texto-secundario {
+  color: var(--texto-secundario);
+}
+
+/* Secciones */
+.seccion {
+  padding: var(--esp-lg) 0;
+}

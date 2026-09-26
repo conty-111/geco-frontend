@@ -37,3 +37,138 @@ a {
 .seccion {
   padding: var(--esp-lg) 0;
 }
+/* ===== TARJETA ===== */
+.tarjeta {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: var(--esp-md);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  background-color: var(--superficie-hover);
+  transform: translateY(-2px);
+}
+
+/* Borde lateral según gravedad */
+.tarjeta-alta {
+  border-left: 4px solid var(--alerta);
+}
+
+.tarjeta-media {
+  border-left: 4px solid var(--atencion);
+}
+
+.tarjeta-baja {
+  border-left: 4px solid var(--resuelto);
+}
+
+.tarjeta-icono {
+  font-size: 1.75rem;
+  color: var(--texto-secundario);
+  margin-bottom: var(--esp-xs);
+}
+
+.tarjeta-titulo {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: var(--esp-sm);
+}
+
+.tarjeta-dato {
+  font-size: 0.875rem;
+  color: var(--texto-secundario);
+  margin-bottom: 0.35rem;
+}
+
+.tarjeta-dato strong {
+  color: var(--texto);
+  font-weight: 500;
+}
+
+/* ===== ETIQUETA ===== */
+.etiqueta {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.etiqueta-alerta {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: var(--alerta);
+}
+
+.etiqueta-atencion {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--atencion);
+}
+
+.etiqueta-resuelto {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--resuelto);
+}
+
+.etiqueta-info {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: var(--info);
+}
+
+/* ===== TÍTULO DE SECCIÓN ===== */
+.titulo-seccion {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: var(--esp-md);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.titulo-seccion .bi {
+  color: var(--alerta);
+  font-size: 1.35rem;
+}
+
+/* ===== BARRA DE PROGRESO ===== */
+.barra-progreso {
+  margin-top: var(--esp-sm);
+}
+
+.barra-progreso-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+  margin-bottom: 0.4rem;
+}
+
+.barra-progreso-fondo {
+  width: 100%;
+  height: 6px;
+  background-color: var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-progreso-relleno {
+  height: 100%;
+  background-color: var(--info);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* ===== GRILLA DE TARJETAS ===== */
+.grilla-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--esp-md);
+}

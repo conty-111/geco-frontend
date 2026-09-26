@@ -172,3 +172,108 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--esp-md);
 }
+/* ===== NAVBAR ===== */
+.navbar-geco {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+}
+
+.navbar-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-sm) var(--esp-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-md);
+  flex-wrap: wrap;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.navbar-logo .bi {
+  color: var(--alerta);
+  font-size: 1.4rem;
+}
+
+.navbar-enlaces {
+  display: flex;
+  list-style: none;
+  gap: var(--esp-sm);
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.navbar-enlaces a {
+  color: var(--texto-secundario);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.4rem 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-enlaces a:hover {
+  color: var(--texto);
+  border-bottom-color: var(--alerta);
+}
+
+/* ===== FOOTER ===== */
+.footer-geco {
+  border-top: 1px solid var(--borde);
+  background-color: var(--superficie);
+  margin-top: var(--esp-lg);
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-lg) var(--esp-md);
+  text-align: center;
+}
+
+.footer-titulo {
+  color: var(--texto);
+  font-weight: 600;
+  margin-bottom: var(--esp-xs);
+}
+
+.footer-titulo .bi {
+  color: var(--alerta);
+}
+
+.footer-texto {
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-enlaces {
+    gap: 0.75rem;
+  }
+
+  .navbar-enlaces a {
+    font-size: 0.8rem;
+  }
+}

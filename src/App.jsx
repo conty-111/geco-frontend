@@ -5,12 +5,14 @@ import Footer from "./components/layout/Footer";
 import Tarjeta from "./components/ui/Tarjeta";
 import TituloSeccion from "./components/ui/TituloSeccion";
 import { emergencias } from "./data/emergencias";
+import Contacto from "./components/sections/Contacto";
 
 export default function App() {
   return (
     <>
       <Navbar />
       <Hero />
+
 
       <main className="contenido">
         <section className="seccion">
@@ -31,6 +33,7 @@ export default function App() {
         </section>
 
         <Solicitudes />
+        <Contacto />
       </main>
 
       <Footer />

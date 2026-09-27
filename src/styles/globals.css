@@ -376,8 +376,72 @@ a {
 .solicitudes-lista .grilla-tarjetas {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
+/* ---- 5.3 Contacto ---- */
+.contacto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: var(--esp-lg);
+  align-items: start;
+}
 
-/* ---- 5.3 Formularios ---- */
+.contacto-lista {
+  list-style: none;
+  display: grid;
+  gap: var(--esp-sm);
+}
+
+.contacto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: var(--esp-sm);
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.contacto-item .bi {
+  color: var(--alerta);
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+}
+
+.contacto-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--texto-secundario);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contacto-valor {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--texto);
+  font-weight: 500;
+}
+
+/* Aviso destacado*/
+/* Aviso destacado: ancho ajustado al texto y centrado en la columna */
+.contacto-aviso {
+  display: flex;
+  width: fit-content;
+  margin: var(--esp-md) auto 0 auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--atencion);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--texto);
+}
+
+.contacto-aviso .bi {
+  color: var(--atencion);
+}
+
+/* ---- 5.4 Formularios ---- */
 .formulario {
   background-color: var(--superficie);
   border: 1px solid var(--borde);
@@ -477,6 +541,10 @@ a {
 /* ---- Tablet: hasta 900px ---- */
 @media (max-width: 900px) {
   .solicitudes-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-layout {
     grid-template-columns: 1fr;
   }
 }

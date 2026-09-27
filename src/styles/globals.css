@@ -1,5 +1,18 @@
 /* ============================================================
-   GECO - Estilos globales
+   GECO — Estilos globales
+   ------------------------------------------------------------
+   ORDEN DEL ARCHIVO
+   1. Base y reset
+   2. Contenedores y secciones
+   3. Componentes UI reutilizables
+   4. Layout (Navbar, Footer)
+   5. Secciones de la página
+   6. Responsive
+   ============================================================ */
+
+
+/* ============================================================
+   1. BASE Y RESET
    ============================================================ */
 
 * {
@@ -14,30 +27,54 @@ body {
   font-family: var(--fuente);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  
+}
+/* Compensa la altura del navbar fijo al saltar con los enlaces internos,
+   para que el título de la sección no quede tapado */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
 }
 
-/* Tipografía */
 h1, h2, h3, h4 {
   font-weight: 600;
   line-height: 1.3;
 }
 
-/* Enlaces */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Texto secundario */
+
+/* ============================================================
+   2. CONTENEDORES Y SECCIONES
+   Estructura general de la página.
+   ============================================================ */
+
+/* Contenedor principal: centra el contenido y limita su ancho */
+.contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-lg) var(--esp-md);
+}
+
+/* Separación vertical entre secciones */
+.seccion {
+  margin-bottom: var(--esp-lg);
+}
+
 .texto-secundario {
   color: var(--texto-secundario);
 }
 
-/* Secciones */
-.seccion {
-  padding: var(--esp-lg) 0;
-}
-/* ===== TARJETA ===== */
+
+/* ============================================================
+   3. COMPONENTES UI REUTILIZABLES
+   Usados por todas las secciones del proyecto.
+   ============================================================ */
+
+/* ---- 3.1 Tarjeta ---- */
 .tarjeta {
   background-color: var(--superficie);
   border: 1px solid var(--borde);
@@ -53,18 +90,10 @@ a {
   transform: translateY(-2px);
 }
 
-/* Borde lateral según gravedad */
-.tarjeta-alta {
-  border-left: 4px solid var(--alerta);
-}
-
-.tarjeta-media {
-  border-left: 4px solid var(--atencion);
-}
-
-.tarjeta-baja {
-  border-left: 4px solid var(--resuelto);
-}
+/* Borde lateral de color según gravedad */
+.tarjeta-alta   { border-left: 4px solid var(--alerta); }
+.tarjeta-media  { border-left: 4px solid var(--atencion); }
+.tarjeta-baja   { border-left: 4px solid var(--resuelto); }
 
 .tarjeta-icono {
   font-size: 1.75rem;
@@ -90,7 +119,9 @@ a {
   font-weight: 500;
 }
 
-/* ===== ETIQUETA ===== */
+/* ---- 3.2 Etiqueta (estado) ---- */
+/* margin-top: auto empuja la etiqueta al pie de la tarjeta,
+   para que todas queden alineadas aunque tengan distinta altura */
 .etiqueta {
   display: inline-block;
   align-self: flex-start;
@@ -102,27 +133,12 @@ a {
   letter-spacing: 0.02em;
 }
 
-.etiqueta-alerta {
-  background-color: rgba(239, 68, 68, 0.15);
-  color: var(--alerta);
-}
+.etiqueta-alerta   { background-color: rgba(239, 68, 68, 0.15);  color: var(--alerta); }
+.etiqueta-atencion { background-color: rgba(245, 158, 11, 0.15); color: var(--atencion); }
+.etiqueta-resuelto { background-color: rgba(16, 185, 129, 0.15); color: var(--resuelto); }
+.etiqueta-info     { background-color: rgba(59, 130, 246, 0.15); color: var(--info); }
 
-.etiqueta-atencion {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: var(--atencion);
-}
-
-.etiqueta-resuelto {
-  background-color: rgba(16, 185, 129, 0.15);
-  color: var(--resuelto);
-}
-
-.etiqueta-info {
-  background-color: rgba(59, 130, 246, 0.15);
-  color: var(--info);
-}
-
-/* ===== TÍTULO DE SECCIÓN ===== */
+/* ---- 3.3 Título de sección ---- */
 .titulo-seccion {
   font-size: 1.5rem;
   font-weight: 600;
@@ -138,7 +154,7 @@ a {
   font-size: 1.35rem;
 }
 
-/* ===== BARRA DE PROGRESO ===== */
+/* ---- 3.4 Barra de progreso ---- */
 .barra-progreso {
   margin-top: var(--esp-sm);
 }
@@ -166,13 +182,20 @@ a {
   transition: width 0.4s ease;
 }
 
-/* ===== GRILLA DE TARJETAS ===== */
+/* ---- 3.5 Grilla de tarjetas ---- */
+/* auto-fit + minmax: las columnas se acomodan solas según el ancho */
 .grilla-tarjetas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--esp-md);
 }
-/* ===== NAVBAR ===== */
+
+
+/* ============================================================
+   4. LAYOUT
+   ============================================================ */
+/* ---- 4.1 Navbar ---- */
+/* sticky + blur: queda fija al hacer scroll y desenfoca lo de atrás */
 .navbar-geco {
   position: sticky;
   top: 0;
@@ -190,7 +213,6 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: var(--esp-md);
-  flex-wrap: wrap;
 }
 
 .navbar-logo {
@@ -198,7 +220,6 @@ a {
   align-items: center;
   gap: 0.5rem;
   color: var(--texto);
-  text-decoration: none;
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: 0.04em;
@@ -209,18 +230,28 @@ a {
   font-size: 1.4rem;
 }
 
+/* Botón hamburguesa: oculto en escritorio, visible en celular */
+.navbar-boton {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--texto);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
 .navbar-enlaces {
   display: flex;
   list-style: none;
   gap: var(--esp-sm);
-  margin: 0;
-  padding: 0;
   flex-wrap: wrap;
 }
 
 .navbar-enlaces a {
+  display: block;
   color: var(--texto-secundario);
-  text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
   padding: 0.4rem 0.2rem;
@@ -233,7 +264,7 @@ a {
   border-bottom-color: var(--alerta);
 }
 
-/* ===== FOOTER ===== */
+/* ---- 4.2 Footer ---- */
 .footer-geco {
   border-top: 1px solid var(--borde);
   background-color: var(--superficie);
@@ -262,18 +293,330 @@ a {
   font-size: 0.85rem;
 }
 
-/* ===== RESPONSIVE ===== */
+
+/* ============================================================
+   5. SECCIONES DE LA PÁGINA
+   ============================================================ */
+
+/* ---- 5.1 Hero ---- */
+.hero {
+  position: relative;
+  background-image: url("/img/hero-accion.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--borde);
+}
+
+/* Capa oscura sobre la imagen. Pseudoelemento en vez de div
+   porque es decoración visual, no contenido */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 15, 20, 0.75),
+    rgba(11, 15, 20, 0.92)
+  );
+}
+
+/* position: relative para que el texto quede por encima del overlay */
+.hero-contenido {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-lg) var(--esp-md);
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  color: var(--alerta);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--esp-sm);
+}
+
+.hero-titulo {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.2;
+  margin-bottom: var(--esp-sm);
+  max-width: 600px;
+}
+
+/* Doble clase para ganar en especificidad sobre reglas de párrafo */
+.hero .hero-texto {
+  color: var(--texto-secundario);
+  font-size: 1rem;
+  max-width: 560px;
+  margin-bottom: var(--esp-md);
+}
+
+.hero-estado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: var(--esp-sm);
+  border-top: 1px solid var(--borde);
+}
+
+.hero-estado-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--texto-secundario);
+}
+
+.hero-estado-item .bi {
+  color: var(--alerta);
+  font-size: 0.9rem;
+}
+
+.hero-estado-separador {
+  color: var(--borde);
+}
+
+/* ---- 5.2 Solicitudes ---- */
+/* minmax(0, ...) permite que las columnas se achiquen
+   por debajo del ancho de su contenido y no desborden */
+.solicitudes-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: var(--esp-lg);
+  align-items: start;
+}
+
+.solicitudes-lista .grilla-tarjetas {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+/* ---- 5.3 Contacto ---- */
+.contacto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: var(--esp-lg);
+  align-items: start;
+}
+
+.contacto-lista {
+  list-style: none;
+  display: grid;
+  gap: var(--esp-sm);
+}
+
+.contacto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: var(--esp-sm);
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.contacto-item .bi {
+  color: var(--alerta);
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+}
+
+.contacto-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--texto-secundario);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contacto-valor {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--texto);
+  font-weight: 500;
+}
+
+/* Aviso destacado*/
+/* Aviso destacado: ancho ajustado al texto y centrado en la columna */
+.contacto-aviso {
+  display: flex;
+  width: fit-content;
+  margin: var(--esp-md) auto 0 auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--atencion);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--texto);
+}
+
+.contacto-aviso .bi {
+  color: var(--atencion);
+}
+
+/* ---- 5.4 Formularios ---- */
+.formulario {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: var(--esp-md);
+}
+
+.formulario-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: var(--esp-sm);
+}
+
+.formulario label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--texto-secundario);
+  margin-top: var(--esp-sm);
+  margin-bottom: 0.3rem;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background-color: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: var(--info);
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+/* Estados de validación */
+.campo-invalido {
+  border-color: var(--alerta) !important;
+}
+
+.error-texto {
+  display: block;
+  color: var(--alerta);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.boton-enviar {
+  width: 100%;
+  margin-top: var(--esp-md);
+  padding: 0.7rem 1rem;
+  background-color: var(--alerta);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--fuente);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.boton-enviar:hover {
+  opacity: 0.88;
+}
+
+.mensaje {
+  margin-top: var(--esp-sm);
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.mensaje-error { background-color: rgba(239, 68, 68, 0.12);  color: var(--alerta); }
+.mensaje-exito { background-color: rgba(16, 185, 129, 0.12); color: var(--resuelto); }
+
+
+/* ============================================================
+   6. RESPONSIVE
+   Todas las media queries juntas al final, de mayor a menor.
+   ============================================================ */
+
+/* ---- Tablet: hasta 900px ---- */
+@media (max-width: 900px) {
+  .solicitudes-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Celular: hasta 768px ---- */
 @media (max-width: 768px) {
+  /* Navbar: los enlaces se ocultan detrás del botón */
+  .navbar-boton {
+    display: block;
+  }
+
   .navbar-contenido {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .navbar-nav {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-nav.abierto {
+    display: block;
   }
 
   .navbar-enlaces {
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 0;
+    margin-top: var(--esp-sm);
+    padding-top: var(--esp-sm);
+    border-top: 1px solid var(--borde);
   }
 
   .navbar-enlaces a {
-    font-size: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .navbar-enlaces li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Hero */
+  .hero-titulo {
+    font-size: 1.6rem;
+  }
+
+  .hero-estado {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .hero-estado-separador {
+    display: none;
   }
 }

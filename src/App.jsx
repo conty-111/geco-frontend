@@ -1,4 +1,5 @@
 import Navbar from "./components/layout/Navbar";
+import Hero from "./components/sections/Hero";
 import Footer from "./components/layout/Footer";
 import Tarjeta from "./components/ui/Tarjeta";
 import TituloSeccion from "./components/ui/TituloSeccion";
@@ -8,6 +9,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <Hero />
 
       <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2.5rem 1.5rem" }}>
         <TituloSeccion icono="bi-exclamation-triangle-fill" texto="Emergencias activas" />

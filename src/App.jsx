@@ -5,6 +5,7 @@ import Voluntarios from "./components/sections/Voluntarios";
 import Solicitudes from "./components/sections/Solicitudes";
 import Contacto from "./components/sections/Contacto";
 import Footer from "./components/layout/Footer";
+import BotonArriba from "./components/ui/BotonArriba";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <BotonArriba />
     </>
   );
 }

@@ -6,7 +6,8 @@ export default function Voluntarios() {
   return (
     <section className="seccion">
       <TituloSeccion icono="bi-people-fill" texto="Voluntarios" />
-      <div className="row g-3">
+
+      <div className="grilla-tarjetas">
         {voluntarios.map((voluntario) => (
           <Tarjeta
             key={voluntario.id}

@@ -1,6 +1,7 @@
 import Navbar from "./components/layout/Navbar";
 import Hero from "./components/sections/Hero";
 import Emergencias from "./components/sections/Emergencias";
+import Recursos from "./components/sections/Recursos";
 import Voluntarios from "./components/sections/Voluntarios";
 import Solicitudes from "./components/sections/Solicitudes";
 import Contacto from "./components/sections/Contacto";
@@ -15,6 +16,7 @@ export default function App() {
 
       <main className="contenido">
         <Emergencias />
+        <Recursos />
         <Voluntarios />
         <Solicitudes />
         <Contacto />

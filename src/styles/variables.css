@@ -1,0 +1,33 @@
+/* ============================================================
+   GECO - Variables de diseño
+   ============================================================ */
+
+:root {
+  /* Superficies */
+  --fondo: #0B0F14;
+  --superficie: #151B23;
+  --superficie-hover: #1C242E;
+  --borde: #252D38;
+
+  /* Texto */
+  --texto: #E6EDF3;
+  --texto-secundario: #8B949E;
+
+  /* Estados */
+  --alerta: #EF4444;
+  --atencion: #F59E0B;
+  --resuelto: #10B981;
+  --info: #3B82F6;
+
+  /* Tipografía */
+  --fuente: 'Inter', system-ui, sans-serif;
+
+  /* Espaciados */
+  --esp-xs: 0.5rem;
+  --esp-sm: 1rem;
+  --esp-md: 1.5rem;
+  --esp-lg: 2.5rem;
+
+  /* Bordes */
+  --radio: 10px;
+}

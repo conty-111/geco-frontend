@@ -19,7 +19,7 @@ export default function Refugios() {
             />
             <BarraProgreso
               valor={refugio.alojados}
-              maxximo={refugio.capacidad}
+              maximo={refugio.capacidad}
               etiqueta="Ocupación"
             />
           </div>

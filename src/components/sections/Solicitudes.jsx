@@ -119,10 +119,10 @@ export default function Solicitudes() {
           ></textarea>
           {errores.descripcion && <span className="error-texto">{errores.descripcion}</span>}
 
-          <label htmlFor="contacto">Contacto</label>
+         <label htmlFor="contacto-solicitud">Contacto</label>
           <input
             type="text"
-            id="contacto"
+            id="contacto-solicitud"
             name="contacto"
             value={form.contacto}
             onChange={manejarCambio}

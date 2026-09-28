@@ -13,16 +13,23 @@ const ENLACES = [
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false);
 
-  function irASeccion(evento, href) {
+   function irASeccion(evento, href) {
     evento.preventDefault();
     setAbierto(false);
 
-    setTimeout(() => {
-      const destino = document.querySelector(href);
-      if (destino) {
-        destino.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 50);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const destino = document.querySelector(href);
+        if (!destino) return;
+
+        const navbar = document.querySelector(".navbar-geco");
+        const alturaNavbar = navbar ? navbar.offsetHeight : 0;
+        const posicion =
+          destino.getBoundingClientRect().top + window.scrollY - alturaNavbar - 16;
+
+        window.scrollTo({ top: posicion, behavior: "smooth" });
+      });
+    });
   }
 
   return (

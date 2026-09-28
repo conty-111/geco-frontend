@@ -29,11 +29,10 @@ body {
   -webkit-font-smoothing: antialiased;
   
 }
-/* Compensa la altura del navbar fijo al saltar con los enlaces internos,
-   para que el título de la sección no quede tapado */
+
 html {
   scroll-padding-top: 80px;
-  scroll-behavior: smooth;
+  
 }
 
 h1, h2, h3, h4 {
@@ -569,19 +568,22 @@ a {
 
 /* ---- Celular: hasta 768px ---- */
 @media (max-width: 768px) {
-  /* Navbar: los enlaces se ocultan detrás del botón */
+   /* Navbar: los enlaces se ocultan detrás del botón hamburguesa */
   .navbar-boton {
     display: block;
   }
 
-  .navbar-contenido {
-    flex-wrap: wrap;
-  }
-
+  /* El menú se despliega por encima del contenido, no lo empuja:
+     así la altura del navbar no cambia al abrirlo o cerrarlo */
   .navbar-nav {
     display: none;
-    width: 100%;
-    order: 3;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--fondo);
+    border-bottom: 1px solid var(--borde);
+    padding: 0 var(--esp-md) var(--esp-sm);
   }
 
   .navbar-nav.abierto {
@@ -591,13 +593,10 @@ a {
   .navbar-enlaces {
     flex-direction: column;
     gap: 0;
-    margin-top: var(--esp-sm);
-    padding-top: var(--esp-sm);
-    border-top: 1px solid var(--borde);
   }
 
   .navbar-enlaces a {
-    padding: 0.6rem 0;
+    padding: 0.7rem 0;
     border-bottom: 1px solid var(--borde);
   }
 

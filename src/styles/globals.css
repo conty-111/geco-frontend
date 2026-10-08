@@ -701,3 +701,38 @@ a {
   background-color: rgba(59, 130, 246, 0.3);
   transform: translateY(-3px);
 }
+
+/* ============================================================
+   Estilos de la seccion Estadisticas -- Conty
+   ============================================================ */
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--esp-md);
+}
+
+.estadistica {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: var(--esp-md);
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.estadistica:hover {
+  background-color: var(--superficie-hover);
+}
+
+.estadistica-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.estadistica-label {
+  font-size: 0.85rem;
+  color: var(--texto-secundario);
+  margin-top: 0.25rem;
+}

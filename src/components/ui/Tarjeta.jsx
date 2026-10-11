@@ -1,9 +1,10 @@
 import Etiqueta from "./Etiqueta";
+import Icono from "./Icono"; //
 
 export default function Tarjeta({ icono, titulo, datos = [], estado, gravedad }) {
   return (
     <article className={`tarjeta ${gravedad ? `tarjeta-${gravedad}` : ""}`}>
-      {icono && <i className={`bi ${icono} tarjeta-icono`}></i>}
+      <Icono nombre={icono} className="tarjeta-icono" />
       <h3 className="tarjeta-titulo">{titulo}</h3>
 
       {datos.map((dato) => (

@@ -4,7 +4,7 @@ import TituloSeccion from "../ui/TituloSeccion";
 
 export default function Voluntarios() {
   return (
-    <section className="seccion">
+    <section id="voluntarios" className="seccion">
       <TituloSeccion icono="bi-people-fill" texto="Voluntarios" />
 
       <div className="grilla-tarjetas">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TituloSeccion from "../ui/TituloSeccion";
 import Tarjeta from "../ui/Tarjeta";
 import { solicitudes as solicitudesIniciales } from "../../data/solicitudes";
@@ -28,7 +28,13 @@ export default function Solicitudes() {
   const [form, setForm] = useState(FORM_VACIO);
   const [errores, setErrores] = useState({});
   const [mensaje, setMensaje] = useState(null);
-  const [lista, setLista] = useState(solicitudesIniciales);
+  const [lista, setLista] = useState(() => {
+  const guardadas = localStorage.getItem("solicitudesGeco");
+  return guardadas ? JSON.parse(guardadas) : solicitudesIniciales;
+});
+useEffect(() => {
+  localStorage.setItem("solicitudesGeco", JSON.stringify(lista));
+}, [lista]);
 
   function manejarCambio(evento) {
     const { name, value } = evento.target;

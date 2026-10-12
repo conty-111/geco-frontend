@@ -12,7 +12,7 @@ export default function Emergencias() {
   });
 
   return (
-    <section className="seccion">
+    <section id="emergencias" className="seccion">
       <TituloSeccion icono="bi-exclamation-triangle-fill" texto="Emergencias activas" />
 
       {/* Botones de filtro */}

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 
-export default function NumeroAnimado({ valor }) {
+export default function NumeroAnimado({ valor, activo = true }) {
   const [mostrado, setMostrado] = useState(0);
 
   const valorFinal = parseInt(valor);
   const sufijo = valor.replace(/[0-9]/g, "");
 
   useEffect(() => {
+    if (!activo) return;
     const pasos = 90;
     const incremento = valorFinal / pasos;
     let valorActual = 0;
@@ -29,7 +30,7 @@ export default function NumeroAnimado({ valor }) {
       clearTimeout(pausa);
       clearInterval(intervalo);
     };
-  }, [valorFinal]);
+  }, [valorFinal, activo]);
 
   return (
     <>

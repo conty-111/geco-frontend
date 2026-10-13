@@ -1,33 +1,32 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import Emergencias from "./components/sections/Emergencias";
-import Recursos from "./components/sections/Recursos";
-import Refugios from "./components/sections/Refugios";
-import Voluntarios from "./components/sections/Voluntarios";
-import Solicitudes from "./components/sections/Solicitudes";
-import Estadisticas from "./components/sections/Estadisticas";
-import Contacto from "./components/sections/Contacto";
 import Footer from "./components/layout/Footer";
 import BotonArriba from "./components/ui/BotonArriba";
+import Home from "./pages/Home";
+import Emergencias from "./pages/Emergencias";
+import Recursos from "./pages/Recursos";
+import Refugios from "./pages/Refugios";
+import Voluntarios from "./pages/Voluntarios";
+import Solicitudes from "./pages/Solicitudes";
+import ScrollArriba from "./components/ui/ScrollArriba";
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollArriba />
       <Navbar />
-      <Hero />
 
-      <main className="contenido">
-        <Emergencias />
-        <Recursos />
-        <Refugios />
-        <Voluntarios />
-        <Solicitudes />
-        <Estadisticas />
-        <Contacto />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/emergencias" element={<Emergencias />} />
+        <Route path="/recursos" element={<Recursos />} />
+        <Route path="/refugios" element={<Refugios />} />
+        <Route path="/voluntarios" element={<Voluntarios />} />
+        <Route path="/solicitudes" element={<Solicitudes />} />
+      </Routes>
 
       <Footer />
       <BotonArriba />
-    </>
+    </BrowserRouter>
   );
 }

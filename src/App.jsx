@@ -8,10 +8,12 @@ import Recursos from "./pages/Recursos";
 import Refugios from "./pages/Refugios";
 import Voluntarios from "./pages/Voluntarios";
 import Solicitudes from "./pages/Solicitudes";
+import ScrollArriba from "./components/ui/ScrollArriba";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollArriba />
       <Navbar />
 
       <Routes>

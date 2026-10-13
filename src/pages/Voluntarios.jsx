@@ -2,8 +2,11 @@ import Voluntarios from "../components/sections/Voluntarios";
 
 export default function VoluntariosPage() {
   return (
-    <main className="contenido">
-      <Voluntarios />
-    </main>
+    <>
+      <title>Voluntarios registrados | GECO</title>
+      <main className="contenido">
+        <Voluntarios />
+      </main>
+    </>
   );
 }

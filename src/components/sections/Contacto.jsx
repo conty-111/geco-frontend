@@ -1,10 +1,14 @@
-/* ============================================================
+/* 
    CONTACTO — Datos de la organización y formulario de consulta
-   Usa useState para el formulario y su validación.
-   ============================================================ */
+   Usa useState para el formulario y su validación, y useEffect
+   para que el mensaje de éxito se borre solo a los 4 segundos.
+   */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TituloSeccion from "../ui/TituloSeccion";
+
+/* Tiempo que queda visible el mensaje de éxito, en milisegundos */
+const DURACION_MENSAJE = 4000;
 
 const FORM_VACIO = {
   nombre: "",
@@ -23,6 +27,23 @@ export default function Contacto() {
   const [form, setForm] = useState(FORM_VACIO);
   const [errores, setErrores] = useState({});
   const [mensaje, setMensaje] = useState(null);
+
+    /*  EFECTO: ocultar solo el mensaje de éxito 
+     Se ejecuta cada vez que cambia "mensaje".
+     Si el mensaje es de error no hace nada: ese tiene que
+     quedar visible hasta que el usuario corrija los campos.
+     El return cancela el temporizador anterior, así dos envíos
+     seguidos no dejan dos temporizadores corriendo a la vez.
+      */
+  useEffect(() => {
+    if (mensaje?.tipo !== "exito") return;
+
+    const temporizador = setTimeout(() => {
+      setMensaje(null);
+    }, DURACION_MENSAJE);
+
+    return () => clearTimeout(temporizador);
+  }, [mensaje]);
 
   function manejarCambio(evento) {
     const { name, value } = evento.target;

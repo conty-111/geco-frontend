@@ -2,11 +2,13 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 const ENLACES = [
-   { to: "/emergencias", texto: "Emergencias" },
+  { to: "/", texto: "Inicio" },
+  { to: "/emergencias", texto: "Emergencias" },
   { to: "/recursos", texto: "Recursos" },
   { to: "/refugios", texto: "Refugios" },
   { to: "/voluntarios", texto: "Voluntarios" },
   { to: "/solicitudes", texto: "Solicitudes" },
+  { to: "/contacto", texto: "Contacto" },
 ];
 
 export default function Navbar() {

@@ -2,8 +2,11 @@ import Refugios from "../components/sections/Refugios";
 
 export default function RefugiosPage() {
   return (
-    <main className="contenido">
-      <Refugios />
-    </main>
+    <>
+      <title>Refugios habilitados | GECO</title>
+      <main className="contenido">
+        <Refugios />
+      </main>
+    </>
   );
 }

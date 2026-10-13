@@ -8,6 +8,7 @@ import Recursos from "./pages/Recursos";
 import Refugios from "./pages/Refugios";
 import Voluntarios from "./pages/Voluntarios";
 import Solicitudes from "./pages/Solicitudes";
+import ContactoPage from "./pages/Contacto";
 import ScrollArriba from "./components/ui/ScrollArriba";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/refugios" element={<Refugios />} />
         <Route path="/voluntarios" element={<Voluntarios />} />
         <Route path="/solicitudes" element={<Solicitudes />} />
+        <Route path="/contacto" element={<ContactoPage />} />
       </Routes>
 
       <Footer />

@@ -263,6 +263,12 @@ a {
   border-bottom-color: var(--alerta);
 }
 
+/* Marca el enlace de la pagina activa */
+.navbar-enlaces a.active {
+  color: var(--texto);
+  border-bottom-color: var(--alerta);
+}
+
 /* ---- 4.2 Footer ---- */
 .footer-geco {
   border-top: 1px solid var(--borde);

@@ -182,10 +182,11 @@ a {
 }
 
 /* ---- 3.5 Grilla de tarjetas ---- */
-/* auto-fit + minmax: las columnas se acomodan solas según el ancho */
+/* auto-fill + minmax: las columnas se acomodan solas y mantienen su ancho
+   aunque haya pocas tarjetas */
 .grilla-tarjetas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--esp-md);
 }
 
@@ -397,7 +398,7 @@ a {
 }
 
 .solicitudes-lista .grilla-tarjetas {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 /* ---- 5.3 Contacto ---- */
 .contacto-layout {

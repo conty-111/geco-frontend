@@ -1,44 +1,26 @@
 import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 const ENLACES = [
-  { href: "#emergencias", texto: "Emergencias" },
-  { href: "#recursos", texto: "Recursos" },
-  { href: "#refugios", texto: "Refugios" },
-  { href: "#voluntarios", texto: "Voluntarios" },
-  { href: "#solicitudes", texto: "Solicitudes" },
-  { href: "#estadisticas", texto: "Estadisticas" },
-  { href: "#contacto", texto: "Contacto" },
+  { to: "/", texto: "Inicio" },
+  { to: "/emergencias", texto: "Emergencias" },
+  { to: "/recursos", texto: "Recursos" },
+  { to: "/refugios", texto: "Refugios" },
+  { to: "/voluntarios", texto: "Voluntarios" },
+  { to: "/solicitudes", texto: "Solicitudes" },
+  { to: "/contacto", texto: "Contacto" },
 ];
 
 export default function Navbar() {
   const [abierto, setAbierto] = useState(false);
 
-   function irASeccion(evento, href) {
-    evento.preventDefault();
-    setAbierto(false);
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const destino = document.querySelector(href);
-        if (!destino) return;
-
-        const navbar = document.querySelector(".navbar-geco");
-        const alturaNavbar = navbar ? navbar.offsetHeight : 0;
-        const posicion =
-          destino.getBoundingClientRect().top + window.scrollY - alturaNavbar - 16;
-
-        window.scrollTo({ top: posicion, behavior: "smooth" });
-      });
-    });
-  }
-
   return (
     <header className="navbar-geco">
       <div className="navbar-contenido">
-        <a href="#inicio" className="navbar-logo">
+        <Link to="/" className="navbar-logo" onClick={() => setAbierto(false)}>
           <i className="bi bi-shield-exclamation"></i>
           <span>GECO</span>
-        </a>
+        </Link>
 
         <button
           className="navbar-boton"
@@ -52,10 +34,10 @@ export default function Navbar() {
         <nav className={`navbar-nav ${abierto ? "abierto" : ""}`}>
           <ul className="navbar-enlaces">
             {ENLACES.map((enlace) => (
-                <li key={enlace.href}>
-                <a href={enlace.href} onClick={(evento) => irASeccion(evento, enlace.href)}>
+                <li key={enlace.to}>
+                <NavLink to={enlace.to} onClick={() => setAbierto(false)}>
                   {enlace.texto}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
